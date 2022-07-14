@@ -10,10 +10,14 @@
 
 .todo-items-container{
   border: 1px solid;
-  height: 120px;
+  height: 10em;
+  margin-left: -1px;
+  overflow-wrap: break-word;
+  overflow-y: auto;
   //margin-top: 1px;
 }
 
 .input-container{
   margin-bottom: 10px;
+
 }

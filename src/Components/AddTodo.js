@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import {Button, Form} from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddTodo = ({onAdd}) => {
 
@@ -15,12 +17,28 @@ const AddTodo = ({onAdd}) => {
     }
 
     const submit = (e) => {
+        console.log(title, desc);
         e.preventDefault();
-        console.log('@@', title, desc)
+        if(!title  || !desc){
+            return toast.warning("Please fill required fields");
+        }
         onAdd({title : title, desc : desc});
     }
     return (
         <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+
+            <ToastContainer />
             <Form onSubmit={submit} className="input-container">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Title</Form.Label>
